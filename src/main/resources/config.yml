@@ -1,0 +1,105 @@
+# YOU CAN GENERALIZE LIST VALUES. FOR EXAMPLE, ENTERING "MINECART" IN AN ENTITY BLOCK LIST WILL BLOCK ALL ENTITIES THAT CONTAIN THE WORD "MINECART"
+# IN THEIR ENTITY TYPE NAME.
+
+# This is an extra step which will not perform any PTG tasks in supported claims found from other plugins under any circumstance.
+block-in-claims: true
+# This determines if actions such as explosives, placing, or break of existing locations where regeneration effects are scheduled will be allowed to merge.
+# (For Example: When a player breaks a block and it is scheduled to regenerate, this will allow them to place block at that same location etc.)
+state-override: false
+# This tells the plugin whether falling blocks created from physics can form on the ground upon impact or not (falling blocks spawned by the plugin).
+block-forming: false
+
+container-restoration: true
+sign-restoration: true
+
+# This will determine if the plugin will take control over trees and perform its magic.
+tree-physics: true
+# This determines if a block part of the tree physics will regenerate after a delay with a speed.
+tree-regeneration: true
+# This is the integer (IN TICKS, 20 ticks = 1 second) that the tree regeneration process will use as its speed.
+# The longer the duration, the longer the time in between block regeneration forming a more block-by-block design.
+tree-regeneration-speed: 2
+# This is the integer (IN TICKS, 20 ticks = 1 second) that the tree regeneration process will WAIT before starting the regeneration process.
+tree-regeneration-delay: 300
+# This determines if the plugin will animation the action by spawning falling blocks.
+tree-animation: true
+# This determines if the animation will look fancy or not (falling blocks last longer and "tree-animation" must be enabled).
+tree-gravity-effect: true
+# This determines if the tree's blocks will break normally and drop stuff or not.
+tree-drops: true
+# This determines if the tree's sapling will be placed, if possible.
+tree-replant: true
+
+# This determines if the plugin will block all entity explosion damage to blocks or not.
+no-entity-explosions: false
+# This determines if a block damaged by an explosive will regenerate after a delay with a speed.
+explosive-regeneration: true
+# This is the integer (IN TICKS, 20 ticks = 1 second) that the explosive regeneration process will use as its speed.
+# The longer the duration, the longer the time in between block regeneration forming a more block-by-block design.
+explosive-regeneration-speed: 5
+# This is the integer (IN TICKS, 20 ticks = 1 second) that the explosive regeneration process will WAIT before starting the regeneration process.
+explosive-regeneration-delay: 20
+# This tells the plugin whether to spawn falling blocks as a form of decoration from explosions.
+explosive-physics: true
+# This determines whether exploded blocks have drops or not.
+explosive-drops: true
+# This tells the plugin if tnt harmed by an entity explosion should be ignited, rather than taking the effect of other normal blocks.
+explosive-tnt-ignite: true
+# This tells the plugin what the fuse of harmed tnt blocks should be (IN TICKS, 20 ticks = 1 second). This option requires the "explosive-tnt-ignite" feature to be enabled.
+explosive-tnt-fuse: 10
+# This is a list that will prevent explosive block regeneration entirely if the explosion was caused by an entity in this list.
+# Entities: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
+blocked-entity-regeneration: [ ]
+# This is a list that will block explosive damage and effects toward all entity types found in the list.
+# Entities: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
+explosive-blocked-entities:
+  - "ARMOR_STAND"
+  - "PAINTING"
+  - "ITEM_FRAME"
+  - "MINECART"
+
+# This determines if the plugin will block all block explosion damage to other blocks or not.
+no-block-explosions: false
+# This is a list that will prevent explosive block regeneration entirely if the explosion was caused by a block material in this list.
+# Materials: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+blocked-block-regeneration: [ "BED", "AIR" ]
+
+# This determines if block placed by the player will regenerate after a delay.
+place-removal: false
+# This determines how long (IN TICKS, 20 ticks = 1 second) it will take for the block to be removed and reverted to the original material.
+place-removal-delay: 20
+# This list will act as a whitelist when the "place-removal" option is enabled and will ONLY remove the materials found in the list.
+# Materials: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+# (NOTE: This list will be avoided if it is empty.)
+place-only-effected: [ ]
+
+# This determines if block broken by the player will regenerate after a delay.
+break-regeneration: false
+# This determines if blocks broken by the player drop items or not.
+break-drops: true
+# This determines how long (IN TICKS, 20 ticks = 1 second) it will take for the block to be regenerated to its original state.
+break-regeneration-delay: 20
+# This list is a whitelist and requires the "break-regeneration" option enabled. All materials in the list will regenerate after a delay to their original material.
+# Materials: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+# (NOTE: This list will be avoided if it is empty. You may use the format: <material>:<delay> to set individual delays for specific materials)
+break-only-effected: [ ]
+
+# This will convert the "blocked-material-regeneration" into a whitelist from a blacklist.
+invert-bmr: false
+# This is a list that will prevent block regeneration entirely if its material is in the list.
+# Materials: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+blocked-material-regeneration:
+  - "FIRE"
+  - "TNT"
+
+# This option will convert the world-blacklist into a whitelist.
+invert-wb: false
+# This list will block all PTG actions in the defined worlds.
+world-blacklist:
+  - "blocked_world"
+# This list should contain all materials that should be avoided like the black plague. Essentially these materials are safe from the plugins actions at all costs.
+# Materials: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+avoided-materials: [ ]
+
+# This determines whether to hook into CoreProtect.
+core-protect: false
